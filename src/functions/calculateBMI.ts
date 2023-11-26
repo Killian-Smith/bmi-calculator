@@ -4,6 +4,7 @@ function calculateBMI(
   age: number,
   gender: string
 ): number {
+  height = height / 100;
   let bmi = weight / (height * height);
 
   if (age < 18) {
