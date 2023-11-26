@@ -13,14 +13,17 @@ const InputBMI: React.FC = () => {
     height: yup
       .number()
       .required("Height is required")
-      .positive("Must be positive")
-      .integer("Must be a valid height"),
-    weight: yup.number().required().positive(),
-    age: yup.number().required().positive().integer().min(1).max(100),
-    gender: yup
-      .mixed()
-      .oneOf(["male", "female"] as const)
-      .required(),
+      .positive("Height must be positive"),
+    weight: yup
+      .number()
+      .required("Weight is required")
+      .positive("Weight must be positive"),
+    age: yup
+      .number()
+      .required("Age is required")
+      .integer("Age must be valid")
+      .min(1, "Age must be greater than 0")
+      .max(100, "Age must be less than 100"),
   });
 
   return (
@@ -34,8 +37,6 @@ const InputBMI: React.FC = () => {
           gender: "male",
         }}
         onSubmit={(values) => {
-          console.log(values);
-
           const bmi = calculateBMI(
             parseFloat(values.height),
             parseFloat(values.weight),
@@ -54,11 +55,17 @@ const InputBMI: React.FC = () => {
               placeholder="Enter Height in centimeters"
             />
             <Input
+              error={errors.weight && touched.weight ? errors.weight : ""}
               type="number"
               label="Weight"
               placeholder="Enter Weight in Kilograms"
             />
-            <Input type="number" label="Age" placeholder="Enter Age" />
+            <Input
+              error={errors.age && touched.age ? errors.age : ""}
+              type="number"
+              label="Age"
+              placeholder="Enter Age"
+            />
             <Field
               component={Select}
               name="gender"
