@@ -1,4 +1,7 @@
 import Input from "./Input";
 import Select from "./Select";
+import Button from "./Button";
 
-export { Input, Select };
+import InputBMI from "./InputBMI";
+
+export { Input, Select, Button, InputBMI };
