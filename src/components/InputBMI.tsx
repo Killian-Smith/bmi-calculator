@@ -1,34 +1,43 @@
-import React, { useState } from "react";
+import React from "react";
+
+import useBmiStore from "../store/bmi";
 
 import { Formik, Form, Field } from "formik";
 import calculateBMI from "../functions/calculateBMI";
 import { Input, Select, Button } from "../components";
 
 const InputBMI: React.FC = () => {
-  const [bmi, setBmi] = useState<number | null>(null);
-
   return (
     <div className="bg-slate-800 rounded-xl p-4">
       <Formik
         initialValues={{
-          height: 0,
-          weight: 0,
-          age: 0,
+          height: "",
+          weight: "",
+          age: "",
           gender: "",
         }}
         onSubmit={(values) => {
+          console.log(values);
+
           const bmi = calculateBMI(
-            values.height,
-            values.weight,
-            values.age,
+            parseFloat(values.height),
+            parseFloat(values.weight),
+            parseInt(values.age),
             values.gender
           );
-          setBmi(bmi);
+
+          useBmiStore.setState({ bmi });
         }}>
         <Form>
-          <Input label="Height" placeholder="Enter Height" />
-          <Input label="Weight" placeholder="Enter Weight" />
-          <Input label="Age" placeholder="Enter Age" />
+          <Input
+            label="Height"
+            placeholder="Enter Height using Meters - 1.91"
+          />
+          <Input
+            label="Weight"
+            placeholder="Enter Weight in Kilograms - 50.2"
+          />
+          <Input label="Age" placeholder="Enter Age - 22" />
           <Field
             component={Select}
             name="gender"
