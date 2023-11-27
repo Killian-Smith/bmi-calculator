@@ -14,7 +14,14 @@ const Home: React.FC = () => {
           <div className="col-span-2 ">
             <InputBMI />
           </div>
-          <div className="col-span-1">Your BMI is: {bmi}</div>
+          <div className="col-span-1">
+            <div className="bg-slate-800 rounded-xl p-4">
+              <div className="text-center">
+                <h1 className="text-2xl font-bold">BMI:</h1>
+                <p className="text-4xl font-bold">{bmi}</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
