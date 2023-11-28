@@ -25,7 +25,7 @@ const Info: React.FC = () => {
           link: "https://www.nhs.uk/mental-health/feelings-symptoms-behaviours/behaviours/eating-disorders/overview/",
           image:
             "https://2027031.fs1.hubspotusercontent-na1.net/hubfs/2027031/eating%20disorder.jpeg",
-          title: "Overview – Eating disorders",
+          title: "Eating disorders",
           content:
             "An eating disorder is a mental health condition where you use the control of food to cope with feelings and other situations",
         },
@@ -38,11 +38,20 @@ const Info: React.FC = () => {
         "We suggest that you maintain your weight. Have a look below to see some recommended resources to help with that.",
       resources: [
         {
-          link: "http://google.co.uk",
+          link: "https://www.nhs.uk/live-well/exercise/",
           image:
-            "https://www.bhf.org.uk/-/media/images/information-support/support/healthy-living/healthy-eating/eatwell_guide_colour-640x435.jpg?h=450&w=640&rev=98ae4985bd594c269759030613b27d21&hash=132CB2FEB60DE2605CC5CDF7A07CEA67",
-          title: "",
-          content: "The Eatwell Guide helps you get the balance right",
+            "https://www.usdermatologypartners.com/wp-content/uploads/2020/09/Master-Blast-Skin-Care-Goals-Healthy-Diet.jpeg",
+          title: "Exercise",
+          content:
+            "Exercise guidelines and workouts to help improve your fitness and wellbeing",
+        },
+        {
+          link: "https://www.nhs.uk/live-well/eat-well/how-to-eat-a-balanced-diet/",
+          image:
+            "https://www.realsimple.com/thmb/BalZfOrt6rdvKkA62O1MBzN6US0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/how-to-eat-balanced-diet-2000-836357eb36ba4564b8e65ec91960c9b7.jpg",
+          title: "How to eat a balanced diet",
+          content:
+            "Information about eating a balanced diet, including advice about vegetarian and vegan diet",
         },
       ],
     },
@@ -53,11 +62,20 @@ const Info: React.FC = () => {
         "We suggest that you lose some weight. Have a look below to see some recommended resources to help with that.",
       resources: [
         {
-          link: "http://google.co.uk",
+          link: "https://www.nhs.uk/live-well/healthy-weight/managing-your-weight/tips-to-help-you-lose-weight/",
           image:
-            "https://www.bhf.org.uk/-/media/images/information-support/support/healthy-living/healthy-eating/eatwell_guide_colour-640x435.jpg?h=450&w=640&rev=98ae4985bd594c269759030613b27d21&hash=132CB2FEB60DE2605CC5CDF7A07CEA67",
-          title: "?",
-          content: "The Eatwell Guide helps you get the balance right",
+            "https://www.knightspharmacy.co.uk/wp-content/uploads/2023/01/Weight-Management-6.jpg",
+          title: "Tips to help you lose weight",
+          content:
+            "If you're overweight, losing weight will give you more energy and help to reduce the risk of obesity, heart disease and type 2 diabetes.",
+        },
+        {
+          link: "https://www.nhs.uk/live-well/exercise/running-and-aerobic-exercises/get-running-with-couch-to-5k/",
+          image:
+            "https://www.sundried.com/cdn/shop/articles/c27ddca5b9550a6940dfef2581b6c38d_1024x1024.jpg?v=1557744738",
+          title: "Get running with Couch to 5K",
+          content:
+            "Taking up running can seem like a scary prospect, especially if you feel out of shape or unfit.",
         },
       ],
     },
@@ -68,17 +86,24 @@ const Info: React.FC = () => {
         "We suggest that you lose some weight. Have a look below to see some recommended resources to help with that.",
       resources: [
         {
-          link: "http://google.co.uk",
+          link: "https://www.nhs.uk/live-well/healthy-weight/managing-your-weight/tips-to-help-you-lose-weight/",
           image:
-            "https://www.bhf.org.uk/-/media/images/information-support/support/healthy-living/healthy-eating/eatwell_guide_colour-640x435.jpg?h=450&w=640&rev=98ae4985bd594c269759030613b27d21&hash=132CB2FEB60DE2605CC5CDF7A07CEA67",
-          title: "?",
-          content: "The Eatwell Guide helps you get the balance right",
+            "https://www.knightspharmacy.co.uk/wp-content/uploads/2023/01/Weight-Management-6.jpg",
+          title: "Tips to help you lose weight",
+          content:
+            "If you're overweight, losing weight will give you more energy and help to reduce the risk of obesity, heart disease and type 2 diabetes.",
+        },
+        {
+          link: "https://www.nhs.uk/live-well/exercise/running-and-aerobic-exercises/get-running-with-couch-to-5k/",
+          image:
+            "https://www.sundried.com/cdn/shop/articles/c27ddca5b9550a6940dfef2581b6c38d_1024x1024.jpg?v=1557744738",
+          title: "Get running with Couch to 5K",
+          content:
+            "Taking up running can seem like a scary prospect, especially if you feel out of shape or unfit.",
         },
       ],
     },
   };
-
-  console.log(info[data.category]);
 
   return (
     <div className="bg-slate-800 rounded-xl p-4">
@@ -91,7 +116,7 @@ const Info: React.FC = () => {
         <div className="grid md:grid-cols-2 grid-cols-1 gap-2">
           {info[data.category].resources.map((resource: any) => (
             <Card
-              key={resource.link}
+              key={resource.title}
               link={resource.link}
               image={resource.image}
               title={resource.title}
