@@ -9,6 +9,11 @@ import calculateBMI from "../functions/calculateBMI";
 import { Input, Select, Button } from "../components";
 
 const InputBMI: React.FC = () => {
+  interface BmiData {
+    bmi: number;
+    category: string;
+  }
+
   const bmiSchema = yup.object({
     height: yup
       .number()
@@ -37,14 +42,14 @@ const InputBMI: React.FC = () => {
           gender: "male",
         }}
         onSubmit={(values) => {
-          const bmi = calculateBMI(
+          const data: BmiData = calculateBMI(
             parseFloat(values.height),
             parseFloat(values.weight),
             parseInt(values.age),
             values.gender
           );
 
-          useBmiStore.setState({ bmi });
+          useBmiStore.setState({ bmi: data.bmi, category: data.category });
         }}>
         {({ errors, touched }) => (
           <Form>
