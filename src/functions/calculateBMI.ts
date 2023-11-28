@@ -25,13 +25,13 @@ function calculateBMI(
   bmi = Math.round(bmi * 100) / 100;
 
   if (bmi < 18.5) {
-    category = "Underweight";
+    category = "underweight";
   } else if (bmi >= 18.5 && bmi < 25) {
-    category = "Normal weight";
+    category = "healthy";
   } else if (bmi >= 25 && bmi < 30) {
-    category = "Overweight";
+    category = "overweight";
   } else if (bmi >= 30) {
-    category = "Obesity";
+    category = "obese";
   }
 
   return { bmi, category };
